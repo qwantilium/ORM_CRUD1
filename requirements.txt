@@ -6,3 +6,4 @@ sorl-thumbnail
 django==2.2.6
 djangorestframework
 django-isbn-field
+django-crispy-forms

@@ -1,6 +1,13 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<p>Здесь будет форма для добавления новых книг</p>
+<p>Эта форма для добавления новых книг</p>
+
+<form action="" method="post" autocomplete="off">
+    {%csrf_token%}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-success"> Добавить книгу</button>
+</form>
 
 {% endblock content %}
