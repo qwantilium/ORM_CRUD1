@@ -1,14 +1,36 @@
 {% extends "base.html" %}
-
+{% block title %}Список книг{% endblock %}
 {% block content %}
 <p>Здесь будет список для просмотра и редактирования книг</p>
-    {% for book in books %}
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
         <tr>
+            <td>Автор</td>
+            <td>Название</td>
+            <td>Издательство</td>
+            <td>Год</td>
+            <td>ISBN</td>
+            <td><a href="{% url 'books:new_book' %}" class="btn btn-primary">Добавить книгу</a></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        {% for book in books %}
             <td>{{book.author}}</td>
             <td>{{book.title}}</td>
-            <td>{{book.publilsher}}</td>
+            <td>{{book.publisher}}</td>
             <td>{{book.date}}</td>
             <td>{{book.isbn}}</td>
+            <td>
+                <a href="{% url 'books:book_update' book.id %}" class="btn btn-primary">Редактировать</a>
+                <form action="{% url 'books:book_delete' book.id%}" method="post" class="d-inline">
+                    {%csrf_token%}
+                     <button type="submit" class="btn btn-success"> Удалить книгу</button>
+                </form>
+            </td>
         </tr>
-    {%endfor%}
+        {%endfor%}
+        </tbody>
+    </table>
+
 {% endblock content %}

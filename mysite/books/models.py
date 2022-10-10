@@ -7,7 +7,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     date = models.PositiveIntegerField()
     publisher = models.CharField(max_length=100)
-    isbn = ISBNField()
+    isbn = ISBNField(unique=True)
 
     def __str__(self):
         return self.title

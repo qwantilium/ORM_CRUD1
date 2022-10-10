@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
+{% block title %}{{title}}{{book.isbn}}{% endblock %}
+
 {% block content %}
-<p>Эта форма для добавления новых книг</p>
+<p>{{title}}{{book.isbn}}</p>
 
 <form action="" method="post" autocomplete="off">
     {%csrf_token%}
     {{form|crispy}}
-    <button type="submit" class="btn btn-success"> Добавить книгу</button>
+    <button type="submit" class="btn btn-success"> {{button}}</button>
+    <a href="{% url 'books:book_list'%}" class="btn btn-primary">Перейти к списку книг</a>
 </form>
 
 {% endblock content %}
