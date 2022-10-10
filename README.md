@@ -10,7 +10,7 @@
 Клонировать репозиторий и перейти в него в командной строке:
 
 ```
-git clone https://github.com/qwantilium/hw05_final.git
+git clone https://github.com/qwantilium/rest1.git
 ```
 
 Cоздать и активировать виртуальное окружение(Linux):
